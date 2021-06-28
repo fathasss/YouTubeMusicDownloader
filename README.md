@@ -5,7 +5,6 @@ YouTube' dan music indirmek için geliştirdiğim C# masaüstü uygulaması
 ✔ TextBox' a girilen YouTube linkinden indirme sağlar.</br>
 ✔ İndirilen şarkıları belirli klasöre kaydeder.</br>
 ✔ İndirilen şarkıları listBox' a yazar.</br>
-✖ Farklı formatlarda indirme mevcut değil. (Sadece mp3) </br>
 
 ![ekran1](https://user-images.githubusercontent.com/32196738/123626485-96294080-d819-11eb-84c0-88e3cd839a98.PNG)
 ![ekran2](https://user-images.githubusercontent.com/32196738/123626482-94f81380-d819-11eb-84d4-da12e5b88c28.PNG)
