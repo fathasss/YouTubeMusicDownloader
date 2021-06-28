@@ -16,7 +16,6 @@ namespace YouTubeMusic
 {
     public partial class HomeController : Form
     {
-        Boolean format = true;
         public HomeController()
         {
             InitializeComponent();
@@ -27,53 +26,50 @@ namespace YouTubeMusic
             bunifuProgressBar1.Value = 0;
         }
         private async void Btn_Baslat_Click(object sender, EventArgs e)
-        {
-            
-            if(comboBox1.Text == "mp3")
+        {          
+            VideoTitle();
+            using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog()
             {
-                VideoTitle();
-                using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog()
+                Description = "Lütfen Klasör belirleyin."
+            })
+            {
+                if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
                 {
-                    Description = "Lütfen Klasör belirleyin."
-                })
-                {
-                    if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+                    label4.Text = "İndirme Başlatıldı.";
+                    timer1.Start();
+                    var youTube = YouTube.Default;
+                    var video = await youTube.GetVideoAsync(bunifuMaterialTextbox1.Text);
+                    File.WriteAllBytes(folderBrowserDialog.SelectedPath + @"\" + video.FullName, await video.GetBytesAsync());
+
+                    var inputFile = new MediaToolkit.Model.MediaFile { Filename = folderBrowserDialog.SelectedPath + @"\" + video.FullName };
+                    var outputFile = new MediaToolkit.Model.MediaFile { Filename = $"{folderBrowserDialog.SelectedPath + @"\" + video.FullName}.mp3" };
+
+                    using (var engineTool = new Engine())
                     {
-                        label4.Text = "İndirme Başlatıldı.";
-                        timer1.Start();
-                        var youTube = YouTube.Default;
-                        var video = await youTube.GetVideoAsync(bunifuMaterialTextbox1.Text);
-                        File.WriteAllBytes(folderBrowserDialog.SelectedPath + @"\" + video.FullName, await video.GetBytesAsync());
-
-                        var inputFile = new MediaToolkit.Model.MediaFile { Filename = folderBrowserDialog.SelectedPath + @"\" + video.FullName };
-                        var outputFile = new MediaToolkit.Model.MediaFile { Filename = $"{folderBrowserDialog.SelectedPath + @"\" + video.FullName}.mp3" };
-
-                        using (var engineTool = new Engine())
-                        {
-                            engineTool.GetMetadata(inputFile);
-                            engineTool.Convert(inputFile, outputFile);
-                        }
-                        if (format == true)
-                        {
-                            File.Delete(folderBrowserDialog.SelectedPath + @"\" + video.FullName);
-                        }
-                        else
-                        {
-                            File.Delete($"{folderBrowserDialog.SelectedPath + @"\" + video.FullName}.mp3");
-                        }
-                        bunifuProgressBar1.Value = 100;
+                        engineTool.GetMetadata(inputFile);
+                        engineTool.Convert(inputFile, outputFile);
                     }
+                    if (comboBox1.Text == "mp3")
+                    {
+                        File.Delete(folderBrowserDialog.SelectedPath + @"\" + video.FullName);
+                    }
+                    else if (comboBox1.Text =="mp4")
+                    {
+                        File.Delete($"{folderBrowserDialog.SelectedPath + @"\" + video.FullName}.mp3");
+                    }                   
                     else
-                    {                     
-                        MessageBox.Show("Dosya yolu seçilmedi.","UYARI",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                        label4.Text = "Dosya yolunu seçip yeniden deneyin";
-                    }                 
-                }         
-            }
-            if(comboBox1.Text == "mp4")
-            {
-                MessageBox.Show("Şuanlık mp4 formatı mevcut değil.", "UYARI", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                    {
+                        File.Delete(folderBrowserDialog.SelectedPath + @"\" + video.FullName);
+                        File.Delete($"{folderBrowserDialog.SelectedPath + @"\" + video.FullName}.mp3");
+                    }
+                    bunifuProgressBar1.Value = 100;
+                }
+                else
+                {                     
+                    MessageBox.Show("Dosya yolu seçilmedi.","UYARI",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    label4.Text = "Dosya yolunu seçip yeniden deneyin";
+                }                 
+            }                    
         }
         void VideoTitle()
         {
