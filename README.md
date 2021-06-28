@@ -1,5 +1,5 @@
 # YouTubeMusicDownloader
-YouTube' dan music indirmek için geliştirdiğim C# masaüstü uygulaması
+YouTube' dan music indirmek için C# .NET Framework ile geliştirdiğim masaüstü uygulaması
 
 ✔ Geliştirilme aşamasında. </br>
 ✔ TextBox' a girilen YouTube linkinden indirme sağlar.</br>
