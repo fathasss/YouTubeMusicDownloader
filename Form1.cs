@@ -70,6 +70,10 @@ namespace YouTubeMusic
                     }                 
                 }         
             }
+            if(comboBox1.Text == "mp4")
+            {
+                MessageBox.Show("Şuanlık mp4 formatı mevcut değil.", "UYARI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         void VideoTitle()
         {

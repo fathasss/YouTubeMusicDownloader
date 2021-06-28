@@ -51,6 +51,7 @@ namespace YouTubeMusic
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
@@ -160,10 +161,10 @@ namespace YouTubeMusic
             this.bunifuMaterialTextbox1.LineIdleColor = System.Drawing.Color.White;
             this.bunifuMaterialTextbox1.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.bunifuMaterialTextbox1.LineThickness = 3;
-            this.bunifuMaterialTextbox1.Location = new System.Drawing.Point(175, 62);
+            this.bunifuMaterialTextbox1.Location = new System.Drawing.Point(149, 62);
             this.bunifuMaterialTextbox1.Margin = new System.Windows.Forms.Padding(4);
             this.bunifuMaterialTextbox1.Name = "bunifuMaterialTextbox1";
-            this.bunifuMaterialTextbox1.Size = new System.Drawing.Size(547, 42);
+            this.bunifuMaterialTextbox1.Size = new System.Drawing.Size(529, 42);
             this.bunifuMaterialTextbox1.TabIndex = 1;
             this.bunifuMaterialTextbox1.Text = "URL";
             this.bunifuMaterialTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -175,7 +176,7 @@ namespace YouTubeMusic
             this.comboBox1.Items.AddRange(new object[] {
             "mp3",
             "mp4"});
-            this.comboBox1.Location = new System.Drawing.Point(175, 125);
+            this.comboBox1.Location = new System.Drawing.Point(149, 123);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 2;
@@ -283,14 +284,13 @@ namespace YouTubeMusic
             // 
             this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.listBox1.ForeColor = System.Drawing.Color.White;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 17;
-            this.listBox1.Location = new System.Drawing.Point(0, 0);
+            this.listBox1.Location = new System.Drawing.Point(6, 6);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(665, 216);
+            this.listBox1.Size = new System.Drawing.Size(647, 170);
             this.listBox1.TabIndex = 3;
             // 
             // tableLayoutPanel2
@@ -322,12 +322,24 @@ namespace YouTubeMusic
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.listBox1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel5.Location = new System.Drawing.Point(149, 83);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(665, 216);
             this.panel5.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(192, 200);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(137, 16);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Developed by FatihHAS";
             // 
             // HomeController
             // 
@@ -341,6 +353,7 @@ namespace YouTubeMusic
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "HomeController";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Downloader";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
@@ -357,6 +370,7 @@ namespace YouTubeMusic
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -383,6 +397,7 @@ namespace YouTubeMusic
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 
