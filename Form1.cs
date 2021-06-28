@@ -19,11 +19,32 @@ namespace YouTubeMusic
         public HomeController()
         {
             InitializeComponent();
+            
         }
         int startpoint = 0;
         private void Form1_Load(object sender, EventArgs e)
         {
             bunifuProgressBar1.Value = 0;
+            panel6.Visible = false;
+        }
+        public void hideSideMenu()
+        {
+            if (panel6.Visible == true)
+            {
+                panel6.Visible = false;
+            }
+        }
+        public void showSideMenu(Panel subMenu)
+        {
+            if (subMenu.Visible == false)
+            {
+                hideSideMenu();
+                subMenu.Visible = true;
+            }
+            else
+            {
+                hideSideMenu();
+            }
         }
         private async void Btn_Baslat_Click(object sender, EventArgs e)
         {          
@@ -97,11 +118,41 @@ namespace YouTubeMusic
         }
         private void bunifuImageButton2_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult alarm = MessageBox.Show("Uygulamayı kapatmak istediğinize emin misiniz ? ", "UYARI", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if(alarm == DialogResult.Yes)
+            {
+                Application.Exit();
+            }          
         }
         private void bunifuImageButton3_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void bunifuImageButton1_Click(object sender, EventArgs e)
+        {
+            showSideMenu(panel6);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Standart bir mühendis.\n\n" +
+                "Github:    fathasss\n" +
+                "İnstagram: hasfatih.exe\n" +
+                "Twitter:   @fathasss",
+                "UYARI", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //Tools
+            MessageBox.Show("Zamanla eklenecek.", "UYARI", MessageBoxButtons.OK, MessageBoxIcon.Question);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //Updates
+            MessageBox.Show("İlk sürümü daha yeni azcık sabır AQ bizde insanız:)", "UYARI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }
